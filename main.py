@@ -24,9 +24,9 @@ while True:
             mD = True
         if event.type == MOUSEBUTTONUP and mD:
             mousePosOnRelease = pygame.mouse.get_pos()
-            #galf.shoot([galf.rect.x - mousePosOnRelease[0], galf.rect.y - mousePosOnRelease[1]])
-            galf.vel[0] = (galf.rect.x - mousePosOnRelease[0]) / 30
-            galf.vel[1] = (galf.rect.y - mousePosOnRelease[1]) / 30
+            galf.vel[0] = (galf.rect.x - mousePosOnRelease[0]) / 20
+            galf.vel[1] = (galf.rect.y - mousePosOnRelease[1]) / 20
+            galf.shoot = True
             mD = False
 
     screen.fill((0, 0, 0))
