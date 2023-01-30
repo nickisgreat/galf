@@ -2,7 +2,7 @@ import pygame
 from pygame.locals import *
 
 from ball import Ball
-
+import math
 pygame.init()
 
 screen = pygame.display.set_mode((800, 800))
@@ -24,9 +24,11 @@ while True:
             mD = True
         if event.type == MOUSEBUTTONUP and mD:
             mousePosOnRelease = pygame.mouse.get_pos()
-            galf.vel[0] = (galf.rect.x - mousePosOnRelease[0]) / 20
-            galf.vel[1] = (galf.rect.y - mousePosOnRelease[1]) / 20
+            galf.vel[0] = galf.Lvel[0] = (galf.rect.x - mousePosOnRelease[0]) / 20
+            galf.vel[1] = galf.Lvel[1] = (galf.rect.y - mousePosOnRelease[1]) / 20
+            galf.velop = galf.Lvelop = math.sqrt((abs(mousePosOnRelease[0] - galf.x) ** 2) + (abs(mousePosOnRelease[1] - galf.y) ** 2))
             galf.shoot = True
+            galf.shootT = [True, True]
             mD = False
 
     screen.fill((0, 0, 0))
